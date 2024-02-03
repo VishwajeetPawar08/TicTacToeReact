@@ -1,16 +1,11 @@
-import './App.css'
-import First from './components/First' 
+import './components/styles.scss';
+import Board from './components/Board';
 
 function App() {
 
   return (
-    <div>
-      <img src="/vite.svg" alt="" />
-      <First value="It"/>
-      <First  value="Seems like"/>
-      <First value="It"/>
-      <First value = "Worked"/>
-      <First>So good</First>
+    <div className='app'>
+      <Board></Board>
     </div>
   )
 }
