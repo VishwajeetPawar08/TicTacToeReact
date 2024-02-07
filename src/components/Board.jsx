@@ -1,31 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import { useState } from 'react';
 import Square from './Square.jsx';
 
-const Board = () => {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [isXNext, setIsXNext] = useState(false);
-
-  const onClickSquare = clickedPosition => {
-
-    if(squares[clickedPosition]){
-        return;
-    }
-
-    setSquares(currentSquares => {
-      return currentSquares.map((squareValue, position) => {
-        if (clickedPosition === position) {
-          return isXNext ? 'X' : 'O';
-        }
-
-        return squareValue;
-      });
-    });
-
-    setIsXNext(currentIsXNext => !currentIsXNext);
-  };
-
+const Board = ({squares, onClickSquare}) => {
   const renderSquare = position => {
     return (
       <Square
