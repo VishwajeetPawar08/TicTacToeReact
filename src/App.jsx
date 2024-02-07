@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/jsx-no-undef */
 // import { useState } from 'react';
 import { useState } from 'react';
 import './components/styles.scss';
 import Board from './components/Board.jsx';
+import StatusMessage from './components/StatusMessage.jsx';
 import { calculateWinner } from './winner.js';
 
 function App() {
@@ -16,12 +19,7 @@ function App() {
   const [isXNext, setIsXNext] = useState(false);
 
   const winner = calculateWinner(squares);
-  const nextPlayer = isXNext ? 'X' : 'O';
-
-  const status = winner
-    ? `Winner is ${winner}`
-    : `Now the chance is to ${nextPlayer}`;
-
+ 
   const onClickSquare = clickedPosition => {
     if (squares[clickedPosition] || winner) {
       return;
@@ -42,7 +40,7 @@ function App() {
 
   return (
     <div className="app">
-      <h2>{status}</h2>
+      <StatusMessage winner={winner} isXNext = {isXNext} squares={squares} />
       <Board squares={squares} onClickSquare={onClickSquare} />
     </div>
   );
