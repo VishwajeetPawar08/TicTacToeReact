@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/jsx-no-undef */
@@ -9,6 +10,8 @@ import StatusMessage from './components/StatusMessage.jsx';
 import History from './components/History.jsx';
 import { calculateWinner } from './winner.js';
 
+const New_Game = [{ squares: Array(9).fill(null), isXNext: false }];
+
 function App() {
   // const [counter, setCounter] = useState(1);
   // const runn = ()=>{
@@ -18,9 +21,7 @@ function App() {
   // const [squares, setSquares] = useState(Array(9).fill(null));
   // const [isXNext, setIsXNext] = useState(false);
 
-  const [history, setHistory] = useState([
-    { squares: Array(9).fill(null), isXNext: false },
-  ]);
+  const [history, setHistory] = useState(New_Game);
   const [currentMove, setCurrentMove] = useState(0);
   const gamingBoard = history[currentMove];
 
@@ -66,10 +67,23 @@ function App() {
     setCurrentMove(move);
   };
 
+  const onNewGameStart = () => {
+    setHistory(New_Game);
+    setCurrentMove(0);
+  };
+
   return (
     <div className="app">
       <StatusMessage winner={winner} gamingBoard={gamingBoard} />
       <Board squares={gamingBoard.squares} onClickSquare={onClickSquare} />
+
+      <button
+        className={`btn-reset ${winner ? 'active' : ''}`}
+        type="submit"
+        onClick={onNewGameStart}
+      >
+        Start New Game
+      </button>
 
       <History history={history} moveTo={moveTo} currentMove={currentMove} />
     </div>

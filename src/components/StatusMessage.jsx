@@ -10,7 +10,7 @@ const StatusMessage = ({ winner, gamingBoard }) => {
     if (winner) {
       return (
         <div>
-          <h3>Winner is {winner}</h3>
+          <h4>Winner is {winner}</h4>
         </div>
       );
     }
@@ -18,22 +18,22 @@ const StatusMessage = ({ winner, gamingBoard }) => {
       return (
         <>
           {/* react fragment */}
-          <h3>
+          <h4>
             Next chance is to{' '}
             <span className={isXNext ? 'text-orange' : 'text-green'}>
               {nextPlayer}
             </span>
-          </h3>
+          </h4>
         </>
       );
     }
     if (!winner && noMovesLeft) {
       return (
         <div>
-          <h3>
+          <h4>
             No moves left. <span className="text-orange">O</span> and{' '}
             <span className="text-green">X</span> TIED...
-          </h3>
+          </h4>
         </div>
       );
     }
