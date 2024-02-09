@@ -10,7 +10,7 @@ const StatusMessage = ({ winner, gamingBoard }) => {
     if (winner) {
       return (
         <div>
-          <h4>Winner is {winner}</h4>
+          <h4 className="text-orange">Winner is {winner}</h4>
         </div>
       );
     }

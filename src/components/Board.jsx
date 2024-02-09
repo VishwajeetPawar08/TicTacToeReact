@@ -3,12 +3,15 @@
 /* eslint-disable no-undef */
 import Square from './Square.jsx';
 
-const Board = ({squares, onClickSquare}) => {
+const Board = ({ squares, onClickSquare, winningSquares }) => {
   const renderSquare = position => {
+    const isWinningSquare = winningSquares.includes(position);
+
     return (
       <Square
         value={squares[position]}
         onClick={() => onClickSquare(position)}
+        isWinningSquare={isWinningSquare}
       />
     );
   };

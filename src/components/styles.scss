@@ -104,15 +104,12 @@ button {
     .square {
       width: 80px;
       height: 80px;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
+      border: 2px solid #fff;
+      // border-bottom: 2px solid #fff;
       font-size: 2.5rem;
       padding: 0;
       overflow: hidden;
-      transition: all 0.2s;
-      &:last-child {
-        border-right: none;
-      }
+      transition: all 0.2s;      
       &.winning {
         animation: scaleText 1.4s infinite;
         @keyframes scaleText {
